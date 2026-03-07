@@ -68,3 +68,7 @@ body {
     font-weight: 580;
 
 }
+
+.key:active {
+    transform: scale(.95);
+}
