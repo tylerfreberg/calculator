@@ -21,14 +21,12 @@ function calculate() {
     let decClicked = false;
     let equalClicked = false;
     let firstCalc = true;
-    let negative = false;
     let operators = ['+', '-', '*', '/'];
     let val1 = "0";
     let val2 = "0";
     let op = "";
 
     let screen = document.querySelector("#screen");
-    let allClear = document.querySelector("#ac");
 
     buttons = document.querySelectorAll(".key");
 
@@ -45,6 +43,7 @@ function calculate() {
                     if (operators.includes(screen.textContent.at(-1))) {
                         opClicked = false;
                     }
+
                     screen.textContent = screen.textContent.slice(0, -1);
                     if (screen.textContent == "") {
                         screen.textContent = "";
@@ -230,17 +229,8 @@ function calculate() {
                     break;
                 case "subtract":
                     if (opClicked == true && Number.isFinite(Number(screen.textContent.at(-1))) == true) {
-                        if (screen.textContent.at(0) == "-") {
-                            negative = true;
-                        }
-                        if (negative == true) {
-                            val2 = (screen.textContent.split(op))[2];
-                        }
-                        else {
-                            val2 = (screen.textContent.split(op))[1];
-                        }
-                        console.log(val1)
-                        console.log(val2)
+                        let opIndex = screen.textContent.indexOf(op, 1);
+                        val2 = screen.textContent.slice(opIndex + 1);
                         val1 = operate(Number(val1), Number(val2), op);
                         if (val1.toString().length > 11) {
                             screen.textContent = parseFloat(Number(val1).toFixed(10));
@@ -248,14 +238,19 @@ function calculate() {
                         else {
                             screen.textContent = val1;
                         }
+                        opClicked = false;
                     }
-                    if (screen.textContent.length < 15 && opClicked == false) {
+                    if (screen.textContent.length < 15 && opClicked == false && firstCalc == false) {
                         val1 = screen.textContent;
                         op = "-";
                         screen.textContent += "-";
                         opClicked = true;
                         decClicked = false;
                         equalClicked = false;
+                    }
+                    if (firstCalc == true) {
+                        screen.textContent = "-";
+                        firstCalc = false;
                     }
                     break;
                 case "multiply":
@@ -300,7 +295,8 @@ function calculate() {
                     break;
                 case "equals":
                     if (opClicked == true && Number.isFinite(Number(screen.textContent.at(-1))) == true) {
-                        val2 = (screen.textContent.split(op))[1];
+                        let opIndex = screen.textContent.indexOf(op, 1);
+                        val2 = screen.textContent.slice(opIndex + 1);
                         val1 = operate(Number(val1), Number(val2), op);
                         if (val1.toString().length > 11) {
                             screen.textContent = parseFloat(Number(val1).toFixed(10));

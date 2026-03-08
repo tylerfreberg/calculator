@@ -6,6 +6,8 @@
 
 body {
     display: flex;
+    flex-direction: column;
+    gap: 20px;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -28,7 +30,7 @@ body {
     width: 450px;
     max-width: 450px;
     height: 100px;
-    background-color: white;
+    background-color: lightgreen;
     border-radius: 10px;
     display: flex;
     flex-direction: row-reverse;
@@ -72,4 +74,17 @@ body {
 .key:active,
 .is-pressed {
     transform: scale(.95);
+}
+
+.copyright {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    height: 30x;
+    width: 30px;
+    margin-top: 10px;
 }
