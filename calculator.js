@@ -1,4 +1,5 @@
 let opClicked = false;
+let decClicked = false;
 let operators = ['+', '-', '*', '/'];
 let val1 = "";
 let val2 = "";
@@ -121,6 +122,7 @@ buttons.forEach((button) => {
                     op = "+";
                     screen.textContent += "+";
                     opClicked = true;
+                    decClicked = false;
                 }       
                 break;
             case "subtract":
@@ -133,6 +135,7 @@ buttons.forEach((button) => {
                     op = "-";
                     screen.textContent += "-";
                     opClicked = true;
+                    decClicked = false;
                 }
                 break;
             case "multiply":
@@ -146,6 +149,7 @@ buttons.forEach((button) => {
                     op = "*";
                     screen.textContent += "*";
                     opClicked = true;
+                    decClicked = false;
                 }     
                 break;       
             case "divide":
@@ -159,8 +163,8 @@ buttons.forEach((button) => {
                     op = "/";
                     screen.textContent += "/";
                     opClicked = true;
+                    decClicked = false;
                 }
-
                 break;
             case "equals":
                 if (opClicked == true && Number.isFinite(Number(screen.textContent.at(-1))) == true) {
@@ -168,80 +172,100 @@ buttons.forEach((button) => {
                     val1 = operate(Number(val1), Number(val2), op);
                     screen.textContent = val1;
                 }
+                break;
+            case "decimal":
+                if (Screen.textContent.length < 15 && decClicked == false) {
+                    screen.textContent += ".";
+                    decClicked = true;
+                }
         }
     })
 })
 
 document.addEventListener("keydown", (event) => {
+    let button;
+
     switch(event.key) {
         case "Escape":
             event.preventDefault();
-            document.querySelector("#ac").click();
+            button = document.querySelector("#ac");
             break;
         case "Backspace":
             event.preventDefault();
-            document.querySelector("#c").click();
+            button = document.querySelector("#c");
             break;
         case "0":
             event.preventDefault();
-            document.querySelector("#zero").click();
+            button = document.querySelector("#zero");
             break;
         case "1":
             event.preventDefault();
-            document.querySelector("#one").click();
+            button = document.querySelector("#one");
             break;
         case "2":
             event.preventDefault();
-            document.querySelector("#two").click();
+            button = document.querySelector("#two");
             break;
         case "3":
             event.preventDefault();
-            document.querySelector("#three").click();
+            button = document.querySelector("#three");
             break;
         case "4":
             event.preventDefault();
-            document.querySelector("#four").click();
+            button = document.querySelector("#four");
             break;
         case "5":
             event.preventDefault();
-            document.querySelector("#five").click();
+            button = document.querySelector("#five");
             break;
         case "6":
             event.preventDefault();
-            document.querySelector("#six").click();
+            button = document.querySelector("#six");
             break;
         case "7":
             event.preventDefault();
-            document.querySelector("#seven").click();
+            button = document.querySelector("#seven");
             break;
         case "8":
             event.preventDefault();
-            document.querySelector("#eight").click();
+            button = document.querySelector("#eight");
             break;
         case "9":
             event.preventDefault();
-            document.querySelector("#nine").click();
+            button = document.querySelector("#nine");
             break;
         case "+":
             event.preventDefault();
-            document.querySelector("\#add").click();
+            button = document.querySelector("\#add");
             break;
         case "-":
             event.preventDefault();
-            document.querySelector("#subtract").click();
+            button = document.querySelector("#subtract");
             break;
         case "*":
             event.preventDefault();
-            document.querySelector("#multiply").click();
+            button = document.querySelector("#multiply");
             break;
         case "/":
             event.preventDefault();
-            document.querySelector("#divide").click();
+            button = document.querySelector("#divide");
             break;
+        case "Enter":
         case "=":
             event.preventDefault();
-            document.querySelector("#equals").click();
+            button = document.querySelector("#equals");
+            break;
+        case ".":
+            event.preventDefault();
+            button = document.querySelector("#decimal");
             break;
     }
 
+    button.classList.add("is-pressed");
+
+    button.click();
+
+    setTimeout(() => {
+        button.classList.remove("is-pressed");
+    }, 100);
 })
