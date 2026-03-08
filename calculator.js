@@ -17,13 +17,10 @@ function operate(x, y, op) {
     }
 }
 
-function clearScreen(element) {
-    element.textContent = '';
-}
-
 function calculate() {
     let decClicked = false;
     let equalClicked = false;
+    let firstCalc = true;
     let operators = ['+', '-', '*', '/'];
     let val1 = "";
     let val2 = "";
@@ -49,6 +46,10 @@ function calculate() {
                     break;
                 case "zero":
                     if (screen.textContent.length < 15 && equalClicked == false) {
+                        if (firstCalc == true) {
+                            screen.textContent = '';
+                            firstCalc = false;
+                        }
                         screen.textContent += "0";
                     }
                     if (equalClicked == true && opClicked == false) {
@@ -58,6 +59,10 @@ function calculate() {
                     break;
                 case "one":
                     if (screen.textContent.length < 15 && equalClicked == false) {
+                        if (firstCalc == true) {
+                            screen.textContent = '';
+                            firstCalc = false;
+                        }
                         screen.textContent += "1";
                     }
                     if (equalClicked == true && opClicked == false) {
@@ -67,6 +72,10 @@ function calculate() {
                     break;
                 case "two":
                     if (screen.textContent.length < 15 && equalClicked == false) {
+                        if (firstCalc == true) {
+                            screen.textContent = '';
+                            firstCalc = false;
+                        }
                         screen.textContent += "2";
                     }
                     if (equalClicked == true && opClicked == false) {
@@ -76,6 +85,10 @@ function calculate() {
                     break;
                 case "three":
                     if (screen.textContent.length < 15 && equalClicked == false) {
+                        if (firstCalc == true) {
+                            screen.textContent = '';
+                            firstCalc = false;
+                        }
                         screen.textContent += "3";
                     }
                     if (equalClicked == true && opClicked == false) {
@@ -85,6 +98,10 @@ function calculate() {
                     break;
                 case "four":
                     if (screen.textContent.length < 15 && equalClicked == false) {
+                        if (firstCalc == true) {
+                            screen.textContent = '';
+                            firstCalc = false;
+                        }
                         screen.textContent += "4";
                     }
                     if (equalClicked == true && opClicked == false) {
@@ -94,6 +111,10 @@ function calculate() {
                     break;
                 case "five":
                     if (screen.textContent.length < 15 && equalClicked == false) {
+                        if (firstCalc == true) {
+                            screen.textContent = '';
+                            firstCalc = false;
+                        }
                         screen.textContent += "5";
                     }
                     if (equalClicked == true && opClicked == false) {
@@ -103,6 +124,10 @@ function calculate() {
                     break;
                 case "six":
                     if (screen.textContent.length < 15 && equalClicked == false) {
+                        if (firstCalc == true) {
+                            screen.textContent = '';
+                            firstCalc = false;
+                        }
                         screen.textContent += "6";
                     }
                     if (equalClicked == true && opClicked == false) {
@@ -112,15 +137,27 @@ function calculate() {
                     break;
                 case "seven":
                     if (screen.textContent.length < 15 && equalClicked == false) {
+                        if (firstCalc == true) {
+                            screen.textContent = '';
+                            firstCalc = false;
+                        }
                         screen.textContent += "7";
                     }
                     if (equalClicked == true && opClicked == false) {
+                        if (firstCalc == true) {
+                            screen.textContent = '';
+                            firstCalc = false;
+                        }
                         screen.textContent = "7";
                         equalClicked = false;
                     }
                     break;
                 case "eight":
                     if (screen.textContent.length < 15 && equalClicked == false) {
+                        if (firstCalc == true) {
+                            screen.textContent = '';
+                            firstCalc = false;
+                        }
                         screen.textContent += "8";
                     }
                     if (equalClicked == true && opClicked == false) {
@@ -130,6 +167,10 @@ function calculate() {
                     break;
                 case "nine":
                     if (screen.textContent.length < 15 && equalClicked == false) {
+                        if (firstCalc == true) {
+                            screen.textContent = '';
+                            firstCalc = false;
+                        }
                         screen.textContent += "9";
                     }
                     if (equalClicked == true && opClicked == false) {
