@@ -38,6 +38,7 @@ function calculate() {
                     screen.textContent = "0";
                     firstCalc = true;
                     opClicked = false;
+                    equalClicked = false;
                     break;
                 case "c":
                     if (operators.includes(screen.textContent.at(-1))) {
@@ -183,12 +184,29 @@ function calculate() {
                         equalClicked = false;
                     }
                     break;
+                case "pi":
+                    if (firstCalc == true) {
+                        screen.textContent = '';
+                        firstCalc = false;
+                    }
+                    if (screen.textContent == '') {
+                        screen.textContent = "3.14";
+                    }
+                    if (opClicked == true) {
+                        screen.textContent += "3.14"
+                    }
+                    if (equalClicked == true && opClicked == false) {
+                        screen.textContent = "3.14";
+                        equalClicked = false;
+                    }
+                    break;
                 case "add":
                     if (opClicked == true && Number.isFinite(Number(screen.textContent.at(-1))) == true) {
                         val2 = (screen.textContent.split(op))[1];
                         val1 = operate(Number(val1), Number(val2), op);
+                        console.log(val1);
                         if (val1.toString().length > 11) {
-                            screen.textContent = Number(val1).toFixed(10);
+                            screen.textContent = parseFloat(Number(val1).toFixed(10));
                         }
                         else {
                             screen.textContent = val1;
@@ -209,7 +227,7 @@ function calculate() {
                         val2 = (screen.textContent.split(op))[1];
                         val1 = operate(Number(val1), Number(val2), op);
                         if (val1.toString().length > 11) {
-                            screen.textContent = Number(val1).toFixed(10);
+                            screen.textContent = parseFloat(Number(val1).toFixed(10));
                         }
                         else {
                             screen.textContent = val1;
@@ -229,7 +247,7 @@ function calculate() {
                         val2 = (screen.textContent.split(op))[1];
                         val1 = operate(Number(val1), Number(val2), op);
                         if (val1.toString().length > 11) {
-                            screen.textContent = Number(val1).toFixed(10);
+                            screen.textContent = parseFloat(Number(val1).toFixed(10));
                         }
                         else {
                             screen.textContent = val1;
@@ -249,7 +267,7 @@ function calculate() {
                         val2 = (screen.textContent.split(op))[1];
                         val1 = operate(Number(val1), Number(val2), op);
                         if (val1.toString().length > 11) {
-                            screen.textContent = Number(val1).toFixed(10);
+                            screen.textContent = parseFloat(Number(val1).toFixed(10));
                         }
                         else {
                             screen.textContent = val1;
@@ -269,7 +287,7 @@ function calculate() {
                         val2 = (screen.textContent.split(op))[1];
                         val1 = operate(Number(val1), Number(val2), op);
                         if (val1.toString().length > 11) {
-                            screen.textContent = Number(val1).toFixed(10);
+                            screen.textContent = parseFloat(Number(val1).toFixed(10));
                         }
                         else {
                             screen.textContent = val1;
@@ -278,10 +296,21 @@ function calculate() {
                     }
                     break;
                 case "decimal":
+                    if (firstCalc == true) {
+                        screen.textContent = '.';
+                        firstCalc = false;
+                        decClicked = true;
+                    }
+                    if(decClicked == false && equalClicked == true) {
+                        screen.textContent = '.';
+                        decClicked = true;
+                        equalClicked = false;
+                    }
                     if (screen.textContent.length < 15 && decClicked == false && equalClicked == false) {
                         screen.textContent += ".";
                         decClicked = true;
                     }
+                    break;
             }
         })
     })
