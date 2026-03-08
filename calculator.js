@@ -65,6 +65,10 @@ buttons.forEach((button) => {
                 if (screen.textContent.length < 15 && equalPressed == false) {
                     screen.textContent += "0";
                 }
+                if (equalPressed == true && opClicked == false) {
+                    screen.textContent = "0";
+                    equalPressed = false;
+                }
                 break;
             case "one":
                 if (screen.textContent.length < 15 && equalPressed == false) {
@@ -115,7 +119,13 @@ buttons.forEach((button) => {
                 if (opClicked == true && Number.isFinite(Number(screen.textContent.at(-1))) == true) {
                     val2 = (screen.textContent.split(op))[1];
                     val1 = operate(Number(val1), Number(val2), op);
-                    screen.textContent = Number(val1).toFixed(11);
+                    console.log(val1.toString().length);
+                    if (val1.toString().length > 11) {
+                        screen.textContent = Number(val1).toFixed(11);
+                    }
+                    else {
+                        screen.textContent = val1;
+                    }
                 }
 
                 if (screen.textContent.length < 15 && opClicked == false) {
@@ -131,7 +141,13 @@ buttons.forEach((button) => {
                 if (opClicked == true && Number.isFinite(Number(screen.textContent.at(-1))) == true) {
                     val2 = (screen.textContent.split(op))[1];
                     val1 = operate(Number(val1), Number(val2), op);
-                    screen.textContent = Number(val1).toFixed(11);
+                    console.log(val1.toString().length);
+                    if (val1.toString().length > 11) {
+                        screen.textContent = Number(val1).toFixed(11);
+                    }
+                    else {
+                        screen.textContent = val1;
+                    }
                 }
                 if (screen.textContent.length < 15 && opClicked == false) {
                     val1 = screen.textContent;
@@ -146,7 +162,13 @@ buttons.forEach((button) => {
                 if (opClicked == true && Number.isFinite(Number(screen.textContent.at(-1))) == true) {
                     val2 = (screen.textContent.split(op))[1];
                     val1 = operate(Number(val1), Number(val2), op);
-                    screen.textContent = Number(val1).toFixed(11);
+                    console.log(val1.toString().length);
+                    if (val1.toString().length > 11) {
+                        screen.textContent = Number(val1).toFixed(11);
+                    }
+                    else {
+                        screen.textContent = val1;
+                    }
                 }
                 if (screen.textContent.length < 15 && opClicked == false) {
                     val1 = screen.textContent;
@@ -161,7 +183,13 @@ buttons.forEach((button) => {
                 if (opClicked == true && Number.isFinite(Number(screen.textContent.at(-1))) == true) {
                     val2 = (screen.textContent.split(op))[1];
                     val1 = operate(Number(val1), Number(val2), op);
-                    screen.textContent = Number(val1).toFixed(11);
+                    console.log(val1.toString().length);
+                    if (val1.toString().length > 11) {
+                        screen.textContent = Number(val1).toFixed(11);
+                    }
+                    else {
+                        screen.textContent = val1;
+                    }
                 }
                 if (screen.textContent.length < 15 && opClicked == false) {
                     val1 = screen.textContent;
@@ -176,7 +204,13 @@ buttons.forEach((button) => {
                 if (opClicked == true && Number.isFinite(Number(screen.textContent.at(-1))) == true) {
                     val2 = (screen.textContent.split(op))[1];
                     val1 = operate(Number(val1), Number(val2), op);
-                    screen.textContent = Number(val1).toFixed(11);
+                    console.log(val1.toString().length);
+                    if (val1.toString().length > 11) {
+                        screen.textContent = Number(val1).toFixed(11);
+                    }
+                    else {
+                        screen.textContent = val1;
+                    }
                     equalPressed = true;
                 }
                 break;
