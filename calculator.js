@@ -1,5 +1,6 @@
 let opClicked = false;
 let decClicked = false;
+let equalPressed = false;
 let operators = ['+', '-', '*', '/'];
 let val1 = "";
 let val2 = "";
@@ -61,52 +62,52 @@ buttons.forEach((button) => {
                 screen.textContent = screen.textContent.slice(0, -1);
                 break;
             case "zero":
-                if (screen.textContent.length < 15) {
+                if (screen.textContent.length < 15 && equalPressed == false) {
                     screen.textContent += "0";
                 }
                 break;
             case "one":
-                if (screen.textContent.length < 15) {
+                if (screen.textContent.length < 15 && equalPressed == false) {
                     screen.textContent += "1";
                 }
                 break;
             case "two":
-                if (screen.textContent.length < 15) {
+                if (screen.textContent.length < 15 && equalPressed == false) {
                     screen.textContent += "2";
                 }
                 break;
             case "three":
-                if (screen.textContent.length < 15) {
+                if (screen.textContent.length < 15 && equalPressed == false) {
                     screen.textContent += "3";
                 }
                 break;
             case "four":
-                if (screen.textContent.length < 15) {
+                if (screen.textContent.length < 15 && equalPressed == false) {
                     screen.textContent += "4";
                 }
                 break;
             case "five":
-                if (screen.textContent.length < 15) {
+                if (screen.textContent.length < 15 && equalPressed == false) {
                     screen.textContent += "5";
                 }
                 break;
             case "six":
-                if (screen.textContent.length < 15) {
+                if (screen.textContent.length < 15 && equalPressed == false) {
                     screen.textContent += "6";
                 }
                 break;
             case "seven":
-                if (screen.textContent.length < 15) {
+                if (screen.textContent.length < 15 && equalPressed == false) {
                     screen.textContent += "7";
                 }
                 break;
             case "eight":
-                if (screen.textContent.length < 15) {
+                if (screen.textContent.length < 15 && equalPressed == false) {
                     screen.textContent += "8";
                 }
                 break;
             case "nine":
-                if (screen.textContent.length < 15) {
+                if (screen.textContent.length < 15 && equalPressed == false) {
                     screen.textContent += "9";
                 }
                 break;
@@ -114,7 +115,7 @@ buttons.forEach((button) => {
                 if (opClicked == true && Number.isFinite(Number(screen.textContent.at(-1))) == true) {
                     val2 = (screen.textContent.split(op))[1];
                     val1 = operate(Number(val1), Number(val2), op);
-                    screen.textContent = val1;
+                    screen.textContent = Number(val1).toFixed(11);
                 }
 
                 if (screen.textContent.length < 15 && opClicked == false) {
@@ -123,12 +124,14 @@ buttons.forEach((button) => {
                     screen.textContent += "+";
                     opClicked = true;
                     decClicked = false;
+                    equalPressed = false;
                 }       
                 break;
             case "subtract":
                 if (opClicked == true && Number.isFinite(Number(screen.textContent.at(-1))) == true) {
                     val2 = (screen.textContent.split(op))[1];
                     val1 = operate(Number(val1), Number(val2), op);
+                    screen.textContent = Number(val1).toFixed(11);
                 }
                 if (screen.textContent.length < 15 && opClicked == false) {
                     val1 = screen.textContent;
@@ -136,13 +139,14 @@ buttons.forEach((button) => {
                     screen.textContent += "-";
                     opClicked = true;
                     decClicked = false;
+                    equalPressed = false;
                 }
                 break;
             case "multiply":
                 if (opClicked == true && Number.isFinite(Number(screen.textContent.at(-1))) == true) {
                     val2 = (screen.textContent.split(op))[1];
                     val1 = operate(Number(val1), Number(val2), op);
-                    screen.textContent = val1;
+                    screen.textContent = Number(val1).toFixed(11);
                 }
                 if (screen.textContent.length < 15 && opClicked == false) {
                     val1 = screen.textContent;
@@ -150,13 +154,14 @@ buttons.forEach((button) => {
                     screen.textContent += "*";
                     opClicked = true;
                     decClicked = false;
+                    equalPressed = false;
                 }     
                 break;       
             case "divide":
                 if (opClicked == true && Number.isFinite(Number(screen.textContent.at(-1))) == true) {
                     val2 = (screen.textContent.split(op))[1];
                     val1 = operate(Number(val1), Number(val2), op);
-                    screen.textContent = val1;
+                    screen.textContent = Number(val1).toFixed(11);
                 }
                 if (screen.textContent.length < 15 && opClicked == false) {
                     val1 = screen.textContent;
@@ -164,17 +169,19 @@ buttons.forEach((button) => {
                     screen.textContent += "/";
                     opClicked = true;
                     decClicked = false;
+                    equalPressed = false;
                 }
                 break;
             case "equals":
                 if (opClicked == true && Number.isFinite(Number(screen.textContent.at(-1))) == true) {
                     val2 = (screen.textContent.split(op))[1];
                     val1 = operate(Number(val1), Number(val2), op);
-                    screen.textContent = val1;
+                    screen.textContent = Number(val1).toFixed(11);
+                    equalPressed = true;
                 }
                 break;
             case "decimal":
-                if (Screen.textContent.length < 15 && decClicked == false) {
+                if (screen.textContent.length < 15 && decClicked == false && equalPressed == false) {
                     screen.textContent += ".";
                     decClicked = true;
                 }
