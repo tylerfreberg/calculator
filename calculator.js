@@ -1,5 +1,8 @@
 let opClicked = false;
 let operators = ['+', '-', '*', '/'];
+let val1 = "";
+let val2 = "";
+let op = "";
 
 function operate(x, y, op) {
     switch(op) {
@@ -107,29 +110,64 @@ buttons.forEach((button) => {
                 }
                 break;
             case "add":
+                if (opClicked == true && Number.isFinite(Number(screen.textContent.at(-1))) == true) {
+                    val2 = (screen.textContent.split(op))[1];
+                    val1 = operate(Number(val1), Number(val2), op);
+                    screen.textContent = val1;
+                }
+
                 if (screen.textContent.length < 15 && opClicked == false) {
+                    val1 = screen.textContent;
+                    op = "+";
                     screen.textContent += "+";
                     opClicked = true;
-                }           
+                }       
                 break;
             case "subtract":
+                if (opClicked == true && Number.isFinite(Number(screen.textContent.at(-1))) == true) {
+                    val2 = (screen.textContent.split(op))[1];
+                    val1 = operate(Number(val1), Number(val2), op);
+                }
                 if (screen.textContent.length < 15 && opClicked == false) {
+                    val1 = screen.textContent;
+                    op = "-";
                     screen.textContent += "-";
                     opClicked = true;
                 }
                 break;
             case "multiply":
+                if (opClicked == true && Number.isFinite(Number(screen.textContent.at(-1))) == true) {
+                    val2 = (screen.textContent.split(op))[1];
+                    val1 = operate(Number(val1), Number(val2), op);
+                    screen.textContent = val1;
+                }
                 if (screen.textContent.length < 15 && opClicked == false) {
+                    val1 = screen.textContent;
+                    op = "*";
                     screen.textContent += "*";
                     opClicked = true;
                 }     
                 break;       
             case "divide":
+                if (opClicked == true && Number.isFinite(Number(screen.textContent.at(-1))) == true) {
+                    val2 = (screen.textContent.split(op))[1];
+                    val1 = operate(Number(val1), Number(val2), op);
+                    screen.textContent = val1;
+                }
                 if (screen.textContent.length < 15 && opClicked == false) {
+                    val1 = screen.textContent;
+                    op = "/";
                     screen.textContent += "/";
                     opClicked = true;
                 }
+
                 break;
+            case "equals":
+                if (opClicked == true && Number.isFinite(Number(screen.textContent.at(-1))) == true) {
+                    val2 = (screen.textContent.split(op))[1];
+                    val1 = operate(Number(val1), Number(val2), op);
+                    screen.textContent = val1;
+                }
         }
     })
 })
@@ -199,6 +237,10 @@ document.addEventListener("keydown", (event) => {
         case "/":
             event.preventDefault();
             document.querySelector("#divide").click();
+            break;
+        case "=":
+            event.preventDefault();
+            document.querySelector("#equals").click();
             break;
     }
 
