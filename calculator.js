@@ -25,6 +25,7 @@ function calculate() {
     let val1 = "0";
     let val2 = "0";
     let op = "";
+    let piClicked = false;
 
     let screen = document.querySelector("#screen");
 
@@ -189,6 +190,8 @@ function calculate() {
                         val1 = Math.sqrt(Number(screen.textContent));
                         screen.textContent = parseFloat(Number(val1).toFixed(10));
                     }
+                    equalClicked = true;
+                    piClicked = false;
                     break;
                 case "pi":
                     if (firstCalc == true) {
@@ -197,13 +200,16 @@ function calculate() {
                     }
                     if (screen.textContent == '') {
                         screen.textContent = "3.14";
+                        piClicked = true;
                     }
-                    if (opClicked == true) {
-                        screen.textContent += "3.14"
+                    if (opClicked == true && piClicked == false) {
+                        screen.textContent += "3.14";
+                        piClicked = true;
                     }
-                    if (equalClicked == true && opClicked == false) {
+                    if (equalClicked == true && opClicked == false && piClicked == false) {
                         screen.textContent = "3.14";
                         equalClicked = false;
+                        piClicked = true;
                     }
                     break;
                 case "add":
@@ -225,6 +231,7 @@ function calculate() {
                         opClicked = true;
                         decClicked = false;
                         equalClicked = false;
+                        piClicked = false;
                     }       
                     break;
                 case "subtract":
@@ -247,6 +254,7 @@ function calculate() {
                         opClicked = true;
                         decClicked = false;
                         equalClicked = false;
+                        piClicked = false;
                     }
                     if (firstCalc == true) {
                         screen.textContent = "-";
@@ -271,6 +279,7 @@ function calculate() {
                         opClicked = true;
                         decClicked = false;
                         equalClicked = false;
+                        piClicked = false;
                     }     
                     break;       
                 case "divide":
@@ -291,6 +300,7 @@ function calculate() {
                         opClicked = true;
                         decClicked = false;
                         equalClicked = false;
+                        piClicked = false;
                     }
                     break;
                 case "equals":
@@ -305,6 +315,7 @@ function calculate() {
                             screen.textContent = val1;
                         }
                         equalClicked = true;
+                        piClicked = false;
                     }
                     break;
                 case "decimal":
