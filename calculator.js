@@ -35,7 +35,8 @@ function calculate() {
         button.addEventListener("click", (event) => {
             switch (event.target.id) {
                 case "ac":
-                    screen.textContent = "";
+                    screen.textContent = "0";
+                    firstCalc = true;
                     opClicked = false;
                     break;
                 case "c":
@@ -43,6 +44,10 @@ function calculate() {
                         opClicked = false;
                     }
                     screen.textContent = screen.textContent.slice(0, -1);
+                    if (screen.textContent == "") {
+                        screen.textContent = "0";
+                        firstCalc = true;
+                    }
                     break;
                 case "zero":
                     if (screen.textContent.length < 15 && equalClicked == false) {
@@ -183,7 +188,7 @@ function calculate() {
                         val2 = (screen.textContent.split(op))[1];
                         val1 = operate(Number(val1), Number(val2), op);
                         if (val1.toString().length > 11) {
-                            screen.textContent = Number(val1).toFixed(11);
+                            screen.textContent = Number(val1).toFixed(10);
                         }
                         else {
                             screen.textContent = val1;
@@ -204,7 +209,7 @@ function calculate() {
                         val2 = (screen.textContent.split(op))[1];
                         val1 = operate(Number(val1), Number(val2), op);
                         if (val1.toString().length > 11) {
-                            screen.textContent = Number(val1).toFixed(11);
+                            screen.textContent = Number(val1).toFixed(10);
                         }
                         else {
                             screen.textContent = val1;
@@ -224,7 +229,7 @@ function calculate() {
                         val2 = (screen.textContent.split(op))[1];
                         val1 = operate(Number(val1), Number(val2), op);
                         if (val1.toString().length > 11) {
-                            screen.textContent = Number(val1).toFixed(11);
+                            screen.textContent = Number(val1).toFixed(10);
                         }
                         else {
                             screen.textContent = val1;
@@ -244,7 +249,7 @@ function calculate() {
                         val2 = (screen.textContent.split(op))[1];
                         val1 = operate(Number(val1), Number(val2), op);
                         if (val1.toString().length > 11) {
-                            screen.textContent = Number(val1).toFixed(11);
+                            screen.textContent = Number(val1).toFixed(10);
                         }
                         else {
                             screen.textContent = val1;
@@ -264,7 +269,7 @@ function calculate() {
                         val2 = (screen.textContent.split(op))[1];
                         val1 = operate(Number(val1), Number(val2), op);
                         if (val1.toString().length > 11) {
-                            screen.textContent = Number(val1).toFixed(11);
+                            screen.textContent = Number(val1).toFixed(10);
                         }
                         else {
                             screen.textContent = val1;
