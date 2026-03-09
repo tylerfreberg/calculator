@@ -201,15 +201,18 @@ function calculate() {
                     if (screen.textContent == '') {
                         screen.textContent = "3.14";
                         piClicked = true;
+                        decClicked = true;
                     }
                     if (opClicked == true && piClicked == false) {
                         screen.textContent += "3.14";
                         piClicked = true;
+                        decClicked = true;
                     }
                     if (equalClicked == true && opClicked == false && piClicked == false) {
                         screen.textContent = "3.14";
                         equalClicked = false;
                         piClicked = true;
+                        decClicked = true;
                     }
                     break;
                 case "add":
