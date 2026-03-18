@@ -58,9 +58,11 @@ function calculate() {
                             firstCalc = false;
                         }
                         screen.textContent += "0";
+                        piClicked = true;
                     }
                     if (equalClicked == true && opClicked == false) {
                         screen.textContent = "0";
+                        piClicked = true;
                         equalClicked = false;
                     }
                     break;
@@ -71,10 +73,12 @@ function calculate() {
                             firstCalc = false;
                         }
                         screen.textContent += "1";
+                        piClicked = true;
                     }
                     if (equalClicked == true && opClicked == false) {
                         screen.textContent = "1";
                         equalClicked = false;
+                        piClicked = true;
                     }
                     break;
                 case "two":
@@ -84,10 +88,12 @@ function calculate() {
                             firstCalc = false;
                         }
                         screen.textContent += "2";
+                        piClicked = true;
                     }
                     if (equalClicked == true && opClicked == false) {
                         screen.textContent = "2";
                         equalClicked = false;
+                        piClicked = true;
                     }
                     break;
                 case "three":
@@ -97,10 +103,12 @@ function calculate() {
                             firstCalc = false;
                         }
                         screen.textContent += "3";
+                        piClicked = true;
                     }
                     if (equalClicked == true && opClicked == false) {
                         screen.textContent = "3";
                         equalClicked = false;
+                        piClicked = true;
                     }
                     break;
                 case "four":
@@ -110,10 +118,12 @@ function calculate() {
                             firstCalc = false;
                         }
                         screen.textContent += "4";
+                        piClicked = true;
                     }
                     if (equalClicked == true && opClicked == false) {
                         screen.textContent = "4";
                         equalClicked = false;
+                        piClicked = true;
                     }
                     break;
                 case "five":
@@ -123,10 +133,12 @@ function calculate() {
                             firstCalc = false;
                         }
                         screen.textContent += "5";
+                        piClicked = true;
                     }
                     if (equalClicked == true && opClicked == false) {
                         screen.textContent = "5";
                         equalClicked = false;
+                        piClicked = true;
                     }
                     break;
                 case "six":
@@ -136,10 +148,12 @@ function calculate() {
                             firstCalc = false;
                         }
                         screen.textContent += "6";
+                        piClicked = true;
                     }
                     if (equalClicked == true && opClicked == false) {
                         screen.textContent = "6";
                         equalClicked = false;
+                        piClicked = true;
                     }
                     break;
                 case "seven":
@@ -149,6 +163,7 @@ function calculate() {
                             firstCalc = false;
                         }
                         screen.textContent += "7";
+                        piClicked = true;
                     }
                     if (equalClicked == true && opClicked == false) {
                         if (firstCalc == true) {
@@ -157,6 +172,7 @@ function calculate() {
                         }
                         screen.textContent = "7";
                         equalClicked = false;
+                        piClicked = true;
                     }
                     break;
                 case "eight":
@@ -166,10 +182,12 @@ function calculate() {
                             firstCalc = false;
                         }
                         screen.textContent += "8";
+                        piClicked = true;
                     }
                     if (equalClicked == true && opClicked == false) {
                         screen.textContent = "8";
                         equalClicked = false;
+                        piClicked = true;
                     }
                     break;
                 case "nine":
@@ -179,10 +197,12 @@ function calculate() {
                             firstCalc = false;
                         }
                         screen.textContent += "9";
+                        piClicked = true;
                     }
                     if (equalClicked == true && opClicked == false) {
                         screen.textContent = "9";
                         equalClicked = false;
+                        piClicked = true;
                     }
                     break;
                 case "sqrt":
